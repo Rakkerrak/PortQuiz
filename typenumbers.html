@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Numbers</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+<body>
+  <input type="button" id="start" value="start" onclick="port()">
+  <input type="text" id="port" value="">
+  <input type="text" id="test">
+  <input type="button" value="click" onclick="z()"><span id="err"></span>
+  <p>
+    <a href= "https://not-cool.neocities.org/typenumbers.html" >Refresh</a>
+  </p>
+  <p>
+    <a href = "https://not-cool.neocities.org/typeletters.html" > Type letters instead</a>
+
+  <script>
+
+
+  var portnumbers = [ "21", "22", "23", "25", "53", "80", "110", "143", "443", "3389", "137", "138", "139", "445", "427", "548", "67", "68", "389", "161", "162"];
+  var portnames = ["FTP", "SSH", "Telnet", "SMTP", "DNS", "HTTP", "POP3", "IMAP", "HTTPS", "RDP", "NetBIOS/NetBT(1)", "NetBIOS/NetBT(2)", "NetBIOS/NetBT(3)", "SMB/CIFS", "SLP", "AFP", "DHCP(1)", "DHCP(2)", "LDAP", "SNMP", "SNMP"];
+  var curr = Math.floor(Math.random()*21);
+
+
+  function z()
+  {
+    var correctPort=portnumbers[curr].toLowerCase();
+    var a=document.getElementById("test");
+    if((a.value.toLowerCase()==correctPort))
+    {
+      document.getElementById('err').innerHTML= ' correct';
+    }
+    else
+    {
+      document.getElementById('err').innerHTML= ' wrong';
+    }
+  }
+
+  function port()
+  {
+    document.getElementById("port").value = portnames[curr];
+  }
+  </script>
+
+</body>
