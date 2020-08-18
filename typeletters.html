@@ -9,10 +9,10 @@
   <input type="button" id="start" value="start" onclick="port()">
   <input type="text" id="port" value="">
   <input type="text" id="test">
-  <input type="button" value="click" onclick="z()"><span id="err"></span>
-  <p>
+  <input type="button" value="click" onclick="checkPort()"><span id="result"></span>
+  <!-- <p>
     <a href= "https://not-cool.neocities.org/typeletters.html" >Refresh</a>
-  </p>
+  </p>-->
   <p>
     <a href = "https://not-cool.neocities.org/typenumbers.html" > Type numbers instead</a>
 
@@ -21,25 +21,27 @@
 
   var portnumbers = [ "21", "22", "23", "25", "53", "80", "110", "143", "443", "3389", "137", "138", "139", "445", "427", "548", "67", "68", "389", "161", "162"];
   var portnames = ["FTP", "SSH", "Telnet", "SMTP", "DNS", "HTTP", "POP3", "IMAP", "HTTPS", "RDP", "NetBIOS/NetBT", "NetBIOS/NetBT", "NetBIOS/NetBT", "SMB/CIFS", "SLP", "AFP", "DHCP", "DHCP", "LDAP", "SNMP", "SNMP"];
-  var curr = Math.floor(Math.random()*21);
 
+  var outercurr = 0;
 
-  function z()
+  function checkPort()
   {
-    var correctPort=portnames[curr].toLowerCase();
+    var correctPort=portnames[outercurr].toLowerCase();
     var a=document.getElementById("test");
     if((a.value.toLowerCase()==correctPort))
     {
-      document.getElementById('err').innerHTML= ' correct';
+      document.getElementById('result').innerHTML= ' correct';
     }
     else
     {
-      document.getElementById('err').innerHTML= ' wrong';
+      document.getElementById('result').innerHTML= ' wrong';
     }
   }
 
   function port()
   {
+    var curr = Math.floor(Math.random()*portnumbers.length);
+    outercurr = curr;
     document.getElementById("port").value = portnumbers[curr];
   }
   </script>
