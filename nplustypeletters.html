@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Letters</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+<body>
+  <input type="button" id="start" value="start" onclick="port()">
+  <input type="text" id="port" value="">
+  <input type="text" id="test">
+  <input type="button" value="click" onclick="checkPort()"><span id="result"></span>
+  <!-- <p>
+    <a href= "https://not-cool.neocities.org/typeletters.html" >Refresh</a>
+  </p>-->
+  <p>
+    <a href = "https://not-cool.neocities.org/nplus/nplustypenumbers.html" > Type numbers instead</a>
+
+  <script>
+
+
+  var portnumbers = ["20", "21", "22","22 as a tunnel for 20/21", "23", "25", "53", "69", "80", "110", "123", "143", "443", "636", "1720", "3389", "5060", "5061", "445", "67", "68", "389", "161"];
+  var portnames = ["FTP", "FTP", "SSH", "SFTP", "Telnet", "SMTP", "DNS", "TFTP", "HTTP", "POP", "NTP", "IMAP", "HTTPS", "LDAPS", "H.323", "RDP", "SIP", "SIP", "SMB", "DHCP", "DHCP", "LDAP", "SNMP"];
+
+  var outercurr = 0;
+
+  function checkPort()
+  {
+    var correctPort=portnames[outercurr].toLowerCase();
+    var a=document.getElementById("test");
+    if((a.value.toLowerCase()==correctPort))
+    {
+      document.getElementById('result').innerHTML= ' correct';
+    }
+    else
+    {
+      document.getElementById('result').innerHTML= ' wrong';
+    }
+  }
+
+  function port()
+  {
+    var curr = Math.floor(Math.random()*portnumbers.length);
+    outercurr = curr;
+    document.getElementById("port").value = portnumbers[curr];
+  }
+  </script>
+
+</body>
